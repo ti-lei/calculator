@@ -8,25 +8,31 @@
 </head>
 <body>
     <div class="container">
-        <div class="row mb-3">
-            <div class="col-sm-6 col-12"> <button type="button" class="btn btn-primary" id="addPrice530">+530</button>
-                <button type="button" class="btn btn-secondary" id="addPrice550">+550</button>
-                <input type="number" class="form-control" id="price" placeholder="商品價格" value="0">
+        <div class="row mb-3 gy-3">
+            <div class="col-12">
+                <button type="button" class="btn btn-primary me-2 mb-2" id="addPrice530">+530</button>
+                <button type="button" class="btn btn-secondary mb-2" id="addPrice550">+550</button>
+                <br>
+                <label for="price" class="form-label">商品價格：</label>
+                <input type="number" class="form-control mb-3" id="price" placeholder="商品價格" value="0">
             </div>
-            <div class="col-sm-6 col-12">
-                <button type="button" class="btn btn-info" id="addPaid10">+10</button>
-                <button type="button" class="btn btn-secondary" id="addPaid50">+50</button>
-                <button type="button" class="btn btn-primary" id="addPaid500">+500</button>
-                <button type="button" class="btn btn-success" id="addPaid1000">+1000</button>
-                <input type="number" class="form-control" id="paid" placeholder="給付金額" value="0">
+
+            <div class="col-12">
+                <button type="button" class="btn btn-info me-2" id="addPaid10">+10</button>
+                <button type="button" class="btn btn-primary me-2 mb-2" id="addPaid50">+50</button>
+                <button type="button" class="btn btn-primary me-2 mb-2" id="addPaid500">+500</button>
+                <button type="button" class="btn btn-secondary mb-2" id="addPaid1000">+1000</button>
+                <br>
+                <label for="paid" class="form-label">付款金額：</label>
+                <input type="number" class="form-control mb-3" id="paid" placeholder="給付金額" value="0">
             </div>
         </div>
         <div class="row">
             <div class="col-12">
-                <button type="button" class="btn btn-success" id="calculate">計算</button>
+                <button type="button" class="btn btn-success w-100" id="calculate">計算</button>
             </div>
         </div>
-        <p id="result"></p>
+        <p id="result" class="mt-3"></p>
     </div>
     <script>
         function addPrice(amount) {
