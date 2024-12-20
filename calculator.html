@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>簡易計算機</title>
+</head>
+<body>
+    <div class="container">
+        <div class="row mb-3">
+            <div class="col-sm-6 col-12"> <button type="button" class="btn btn-primary" id="addPrice530">+530</button>
+                <button type="button" class="btn btn-secondary" id="addPrice550">+550</button>
+                <input type="number" class="form-control" id="price" placeholder="商品價格" value="0">
+            </div>
+            <div class="col-sm-6 col-12">
+                <button type="button" class="btn btn-info" id="addPaid10">+10</button>
+                <button type="button" class="btn btn-secondary" id="addPaid50">+50</button>
+                <button type="button" class="btn btn-primary" id="addPaid500">+500</button>
+                <button type="button" class="btn btn-success" id="addPaid1000">+1000</button>
+                <input type="number" class="form-control" id="paid" placeholder="給付金額" value="0">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <button type="button" class="btn btn-success" id="calculate">計算</button>
+            </div>
+        </div>
+        <p id="result"></p>
+    </div>
+    <script>
+        function addPrice(amount) {
+            const priceInput = document.getElementById("price");
+            let currentPrice = parseFloat(priceInput.value);
+
+            if (!isNaN(currentPrice)) {
+                currentPrice += amount;
+                priceInput.value = currentPrice;
+            } else {
+                alert("請輸入有效的數字");
+            }
+        }
+
+        function addPaid(amount) {
+            const paidInput = document.getElementById("paid");
+            let currentPaid = parseFloat(paidInput.value);
+
+            if (!isNaN(currentPaid)) {
+                currentPaid += amount;
+                paidInput.value = currentPaid;
+            } else {
+                alert("請輸入有效的數字");
+            }
+        }
+
+        function calculate() {
+            const price = parseFloat(document.getElementById("price").value);
+            const paid = parseFloat(document.getElementById("paid").value);
+            const change = paid - price;
+            document.getElementById("result").textContent = `找回金額：${change} 元`;
+        }
+
+        // 為按鈕添加事件監聽器
+
+        document.getElementById("addPrice530").addEventListener("click", () => addPrice(530));
+        document.getElementById("addPrice550").addEventListener("click", () => addPrice(550));
+        document.getElementById("addPaid10").addEventListener("click", () => addPaid(10));
+        document.getElementById("addPaid50").addEventListener("click", () => addPaid(50));
+        document.getElementById("addPaid500").addEventListener("click", () => addPaid(500));
+        document.getElementById("addPaid1000").addEventListener("click", () => addPaid(1000));
+
+        document.getElementById("calculate").addEventListener("click", calculate);
+    </script>
+</body>
+</html>
