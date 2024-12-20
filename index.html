@@ -32,7 +32,7 @@
 
             <div class="col-12">
                 <button type="button" class="btn btn-info me-2" id="addPaid10">+10</button>
-                <button type="button" class="btn btn-primary me-2 mb-2" id="addPaid50">+50</button>
+                <button type="button" class="btn btn-success me-2 mb-2" id="addPaid50">+50</button>
                 <button type="button" class="btn btn-primary me-2 mb-2" id="addPaid500">+500</button>
                 <button type="button" class="btn btn-secondary mb-2" id="addPaid1000">+1000</button>
                 <br>
@@ -41,8 +41,9 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-12">
-                <button type="button" class="btn btn-success w-100" id="calculate">計算</button>
+            <div class="col-12 d-flex">
+                <button type="button" class="btn btn-success flex-grow-1 me-2" id="calculate">計算</button>
+                <button type="button" class="btn btn-secondary flex-grow-1" id="reset">歸零</button>
             </div>
         </div>
         <p id="result" class="mt-3"></p>
@@ -78,7 +79,13 @@
             const change = paid - price;
             document.getElementById("result").textContent = `找回金額：${change} 元`;
         }
-
+        function reset() {
+            const priceInput = document.getElementById("price");
+            const paidInput = document.getElementById("paid");
+            priceInput.value = 0;
+            paidInput.value = 0;
+            document.getElementById("result").textContent = `找回金額：      元`;
+        }
         // 為按鈕添加事件監聽器
 
         document.getElementById("addPrice530").addEventListener("click", () => addPrice(530));
@@ -89,6 +96,7 @@
         document.getElementById("addPaid1000").addEventListener("click", () => addPaid(1000));
 
         document.getElementById("calculate").addEventListener("click", calculate);
+        document.getElementById("reset").addEventListener("click", reset);
     </script>
 </body>
 </html>
