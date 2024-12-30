@@ -29,29 +29,29 @@
                     <!-- 左側元素 -->
                     
                     <button type="button" class="btn btn-primary btn-lg me-2" id="addPrice530">原味烤雞</button>
-                    <button type="button" class="btn btn-secondary btn-lg me-2" id="addPrice550">檸檬烤雞</button>
-                    
+                    <button type="button" class="btn btn-success btn-lg me-2" id="addPrice550">檸檬烤雞</button>
+                    <button type="button" class="btn btn-primary btn-lg me-2" id="addPrice50">保冷袋</button>
+
                     <!-- 使用 ms-auto 將按鈕推到右側 -->
                     <button type="button" class="btn btn-danger btn-lg ms-auto" id="resetOrder">重設</button>
                     <br>
                     
                 </div>
-                <span id="orderText" class="ms-2 fw-bold"></span>
-            </div>
                 
+            </div>
+            <span id="orderText" class="mt-4 fw-bold"></span>
 
             <div class="col-12">
                 <label for="paid" class="form-label text-danger mt-2 fs-4" id="paidLabel">付款金額：</label>
                     <div class="col-12 d-flex align-items-center">
-                        <button type="button" class="btn btn-info me-2 btn-lg" id="addPaid10">+10</button>
-                        <button type="button" class="btn btn-success me-2 mb-2 btn-lg" id="addPaid50">+50</button>
-                        <button type="button" class="btn btn-primary me-2 mb-2 btn-lg" id="addPaid500">+500</button>
-                        <button type="button" class="btn btn-secondary mb-2 btn-lg" id="addPaid1000">+1000</button>
+                        <button type="button" class="btn btn-info me-3 mb-2 btn-lg" id="addPaid10">+10</button>
+                        <button type="button" class="btn btn-success me-3 mb-2 ml-2 btn-lg" id="addPaid50">+50</button>
+                        <button type="button" class="btn btn-primary me-3 mb-2 ml-2 btn-lg" id="addPaid500">+500</button>
+                        <button type="button" class="btn btn-secondary me-3 mb-2 ml-2 btn-lg" id="addPaid1000">+1000</button>
                         <button type="button" class="btn btn-danger btn-lg ms-auto" id="resetPaid">重設</button>
                         
                     </div>
                 <div id="paidHistory" class="mt-2 fw-bold"></div>
- 
             </div>
         </div>
         <div class="row">
@@ -93,6 +93,7 @@
         const orderCount = {
         "原味烤雞": 0,
         "檸檬烤雞": 0,
+        "保冷袋":0
         };
         function updateOrderText() {
             const orderText = document.getElementById("orderText");
@@ -189,6 +190,11 @@
             updateOrderText();
         });
 
+        document.getElementById("addPrice50").addEventListener("click", () => {
+            orderCount["保冷袋"] += 1; // 增加檸檬烤雞數量
+            addPrice(50);
+            updateOrderText();
+        });
 
         document.getElementById("calculate").addEventListener("click", calculate);
         document.getElementById("resetOrder").addEventListener("click", resetOrder);
